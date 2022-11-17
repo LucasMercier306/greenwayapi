@@ -9,6 +9,7 @@ from app.core.auth import oauth2_scheme
 from app.core.config import settings
 from app.db.session import SessionLocal
 from app.models.user import User
+from app.clients.reddit import RedditClient
 from app import crud
 
 
@@ -24,6 +25,9 @@ def get_db() -> Generator:
     finally:
         db.close()
 
+
+def get_reddit_client() -> RedditClient:
+    return RedditClient()
 
 
 async def get_current_user(
