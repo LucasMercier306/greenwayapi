@@ -1,9 +1,5 @@
 # greenway api
 
-- using mongodb
-- using fastapi
-
-
 ### NB:
   toutes ces commandes se font à la racine du projet
 
