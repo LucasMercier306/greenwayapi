@@ -19,6 +19,17 @@ class UserBaseSchema(BaseModel):
     class Config:
         orm_mode = True
 
+class UserUpdateSchema(BaseModel):
+    firstname: str
+    lastname: str
+    phone: str
+    wantnotification: bool
+    wanthistory: bool
+    level: int
+    co2saved: int
+    photo: str
+    role: str 
+
 
 class CreateUserSchema(UserBaseSchema):
     password: constr(min_length=8)
