@@ -13,7 +13,7 @@ class UserBaseSchema(BaseModel):
     email: EmailStr
     photo: str
     role: str 
-    created_at: datetime 
+    created_at: datetime
     updated_at: datetime 
 
     class Config:

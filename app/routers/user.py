@@ -39,5 +39,3 @@ def get_all_user():
     print(User.find_one())
     user = userResponseEntity(User.find_one())
     return  {"status": "success", "user": user}
-
-
