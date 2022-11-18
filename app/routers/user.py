@@ -1,9 +1,11 @@
 from fastapi import APIRouter, Depends
 from bson.objectid import ObjectId
 from app.serializers.userSerializers import userResponseEntity
+from fastapi.encoders import jsonable_encoder
 
 from app.database import User
 from .. import schemas, oauth2
+import json
 
 router = APIRouter()
 
@@ -15,27 +17,32 @@ def get_me(user_id: str = Depends(oauth2.require_user) ):
     user = userResponseEntity(User.find_one({'_id': ObjectId(str(user_id))}))
     return {"status": "success", "user": user}
 
-#update user by id
-@router.put('/user')
-def update_user(user_id: str ):
-    
-    newval = {
-      "firstname": "string",
-      "lastname": "string",
-      "phone": "string",
-      "wantnotification": True,
-      "wanthistory": True,
-      "level": 0,
-      "co2saved": 0,
-      "email": "lucasok@gmail.com",
-      "photo": "string",
-      "role": "string",
-    }
+#update user by id #work
+@router.put('/user' )
+def update_user(user_id: str, newval: schemas.UserUpdateSchema ):
     
     print(newval)
+    #datajson = json.dumps(newval)
     
-    User.update_one({"_id" : ObjectId(f"{user_id}")}, {"$set": newval}, upsert=True)
+    parse = jsonable_encoder(newval)
+    print(parse)
     
+    #newval = request_model
+    
+    # newval = {
+    #   "firstname": "string",
+    #   "lastname": "string",
+    #   "phone": "string",
+    #   "wantnotification": True,
+    #   "wanthistory": True,
+    #   "level": 0,
+    #   "co2saved": 0,
+    #   "email": "lucasokok@gmail.com",
+    #   "photo": "string",
+    #   "role": "string",
+    # }
+        
+    User.find_one_and_update({"_id" : ObjectId(f"{user_id}")}, {"$set": parse}, upsert=True)
     return {"status": "success update", "user": f"{user_id}"}
 
 #delete user by id #work

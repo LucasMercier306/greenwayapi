@@ -10,7 +10,7 @@ class UserBaseSchema(BaseModel):
     wanthistory: bool
     level: int
     co2saved: int
-    email: str
+    email: EmailStr
     photo: str
     role: str 
     created_at: datetime 
@@ -27,6 +27,7 @@ class UserUpdateSchema(BaseModel):
     wanthistory: bool
     level: int
     co2saved: int
+    email: EmailStr
     photo: str
     role: str 
 
