@@ -3,8 +3,17 @@
 - using mongodb
 - using fastapi
 
+
+### NB:
+  toutes ces commandes se font à la racine du projet
+
 #### 1 - start db container :
    make dev
+
+#### 2 - create env
+
+python3 -m venv env
+source env/bin/activate
 
 #### 2 - start dev server :
    pip install -r requirements.txt
