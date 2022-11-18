@@ -1,7 +1,13 @@
 def userEntity(user) -> dict:
     return {
         "id": str(user["_id"]),
-        "name": user["name"],
+        "firstname": user["firstname"],
+        "lastname": user["lastname"],
+        "phone": user["phone"],
+        "wantnotification": user["wantnotification"],
+        "wanthistory": user["wanthistory"],
+        "wanthistory": user["wanthistory"],
+        "co2saved": user["co2saved"],
         "email": user["email"],
         "role": user["role"],
         "photo": user["photo"],
@@ -15,7 +21,13 @@ def userEntity(user) -> dict:
 def userResponseEntity(user) -> dict:
     return {
         "id": str(user["_id"]),
-        "name": user["name"],
+        "firstname": user["firstname"],
+        "lastname": user["lastname"],
+        "phone": user["phone"],
+        "wantnotification": user["wantnotification"],
+        "wanthistory": user["wanthistory"],
+        "wanthistory": user["wanthistory"],
+        "co2saved": user["co2saved"],
         "email": user["email"],
         "role": user["role"],
         "photo": user["photo"],
@@ -27,7 +39,13 @@ def userResponseEntity(user) -> dict:
 def embeddedUserResponse(user) -> dict:
     return {
         "id": str(user["_id"]),
-        "name": user["name"],
+        "firstname": user["firstname"],
+        "lastname": user["lastname"],
+        "phone": user["phone"],
+        "wantnotification": user["wantnotification"],
+        "wanthistory": user["wanthistory"],
+        "wanthistory": user["wanthistory"],
+        "co2saved": user["co2saved"],
         "email": user["email"],
         "photo": user["photo"]
     }

@@ -3,7 +3,13 @@ from pydantic import BaseModel, EmailStr, constr
 
 
 class UserBaseSchema(BaseModel):
-    name: str
+    firstname: str
+    lastname: str
+    phone: str
+    wantnotification: bool
+    wanthistory: bool
+    level: int
+    co2saved: int
     email: str
     photo: str
     role: str 
